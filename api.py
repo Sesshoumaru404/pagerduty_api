@@ -15,7 +15,7 @@ class APISession:
 
     return s
 
-  def get(self, endpoint, params=None):
+  def http_get(self, endpoint, params=None):
     session = self.session
     res = session.get(self.url + endpoint, params=params)
 
@@ -25,10 +25,9 @@ class APISession:
       return None
 
     data = res.json()
-    print(data)
     return data
 
-  def post(self, endpoint, data=None):
+  def http_post(self, endpoint, data=None):
     session = self.session
     res = session.post(self.url + endpoint, json=data)
 

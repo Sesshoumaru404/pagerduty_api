@@ -4,10 +4,10 @@ import argparse
 def main(args):
   pd_api = APISession(args.apikey, args.email);
 
-  print(vars(args))
-  print(pd_api.session.headers)
+  users_data = pd_api.http_get("users", {"limit": 2})
+  users = users_data.get("users", [])
 
-  pd_api.get("users", {"limit": 2})
+  print(users)
 
 if __name__ == '__main__':
 

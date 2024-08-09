@@ -1,8 +1,8 @@
-from api import APISession
+from api import PagerdutyClient
 import argparse
 
 def main(args):
-  pd_api = APISession(args.apikey, args.email);
+  pd_api = PagerdutyClient(args.apikey, args.email);
 
   users_data = pd_api.http_get("users", {"limit": 2})
   users = users_data.get("users", [])

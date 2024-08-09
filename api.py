@@ -1,6 +1,6 @@
 import requests
 
-class APISession:
+class PagerdutyClient:
   def __init__(self, access_token, from_email):
     self.email = from_email
     self.session = self.create_session(access_token)

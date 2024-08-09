@@ -5,9 +5,15 @@ def main(args):
   pd_api = PagerdutyClient(args.apikey, args.email);
 
   users_data = pd_api.http_get("users", {"limit": 2})
+
+  if not users_data:
+    print("Nothing returned")
+    return
+
   users = users_data.get("users", [])
 
-  print(users)
+  for user in users:
+    print(user.get("name"))
 
 if __name__ == '__main__':
 

@@ -21,9 +21,10 @@ class PagerdutyClient:
 
     if res.status_code != 200:
       print(f"Status {res.status_code}")
-      print(f"Error: {res.text}")
+      print(f"Error: {res.reason}")
       return None
 
+    print(f"Status {res.status_code}")
     data = res.json()
     return data
 

@@ -1,5 +1,16 @@
 import requests
 
+class User:
+  def __init__(self, user_data):
+    self.name = user_data.get("name")
+    self.email = user_data.get("email")
+    self.contact_methods = user_data.get("contact_methods")
+
+  def display_contacts(self):
+    for contact in self.contact_methods:
+      print(f"{contact.get('summary')} - {contact.get('address')}")
+
+
 class PagerdutyClient:
   def __init__(self, access_token, from_email):
     self.email = from_email
@@ -27,7 +38,7 @@ class PagerdutyClient:
       print(f"Error: {res.reason}")
       return None
 
-    print(f"Status {res.status_code}")
+    # print(f"Status {res.status_code}")
     data = res.json()
     return data
 
@@ -42,3 +53,7 @@ class PagerdutyClient:
 
     data = res.json()
     return data
+
+def loop_users(users):
+  for user in users:
+    print(f"{user.get('id')} - {user.get('name')}")

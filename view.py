@@ -2,7 +2,7 @@ from helpers import PagerdutyClient
 import argparse
 
 def main(args):
-  pd_api = PagerdutyClient(args.apikey, args.email);
+  pd_api = PagerdutyClient(args.apikey, args.email)
 
   users_data = pd_api.http_get("users", {"limit": 2})
 

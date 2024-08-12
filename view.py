@@ -1,4 +1,4 @@
-from api import PagerdutyClient
+from helpers import PagerdutyClient
 import argparse
 
 def main(args):
